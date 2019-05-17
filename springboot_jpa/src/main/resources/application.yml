@@ -1,0 +1,25 @@
+### 配置项目启动端口号
+server:  port: 9999
+### 配置项目应用名
+spring:  application:    name: springboot-jpa
+### 配置JDBC相关信息  datasource:    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/boot_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: java
+### 配置使用Druid作为数据库连接池
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      min-idle: 3
+      max-active: 30
+      initial-size: 10
+      min-evictable-idle-time-millis: 30000
+      max-evictable-idle-time-millis: 60000
+### 配置JPA相关信息  jpa:
+  ### 显示数据库语句    show-sql: true
+    ### 延迟加载数据取出来
+    open-in-view: true
+    ### ddl增删改查    hibernate:      ddl-auto: update
+### 配置thymeleaf信息  thymeleaf:    cache: false
+    encoding: UTF-8
+    prefix: classpath:/view/
+    suffix: .html
