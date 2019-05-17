@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+</head>
+<body>
+	<table border="1">
+		<thead>
+			<tr>
+				<td colspan="4">
+					<a href="registry">注册新用户</a>
+				</td>
+			</tr>
+			<tr>
+				<th>序号</th>
+				<th>姓名</th>
+				<th>电话</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody th:each="user,iterStat:${userList}">
+			<tr>
+				<td><label th:text="${iterStat.count}"></label></td>
+				<td><label th:text="${user.username}"></label></td>
+				<td><label th:text="${user.cellphone}"></label></td>
+				<td>
+					<a th:href="|update?userId=${user.userId}|">修改</a>
+					<a th:href="|delete?userId=${user.userId}|">删除</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
